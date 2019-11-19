@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: pic
+---
+
 typora 
 
 # 服务度量指标的监控框架设计
@@ -26,7 +30,7 @@ typora
 
 ​		 JMX（Java管理扩展），是一套给应用程序引入监控管理功能的接口。比如我们可以通过JMX来监控Tomcat的运行状态。JMX最主要的应用场景就是中间件的监控，配置文件的在线修改等。 
 
-![](E:\doc\book\language\Java\JMX\pic\Chap2-5.jpg)
+![](pic/Chap2-5.jpg)
 
 ### 概念术语
 
@@ -75,7 +79,7 @@ Metrics类库提供了如下监控指标：
 
 统计事件发生的次数和频率。
 
-![](E:\code\java\metrics\diagram\Meter.png)
+![](pic/Meter.png)
 
 ```
 Meter meter = new Meter();
@@ -100,7 +104,7 @@ double fifteenMinRate = meter.getFifteenMinuteRate();
 
 最简单的度量指标，只有一个简单的返回值。*Gauge*是一个接口，metrics-core模块提供了多个实现：*RatioGauge、CachedGauge、DerivativeGauge、JmxAttributeGauge*。
 
-<img src="E:\code\java\metrics\diagram\Gauge.png" style="zoom:150%;" />
+![Gauge](pic/Gauge.png)
 
 *RatioGauge*是一个抽象类，它记录的是一个比值关系。如下为示例代码：
 
@@ -187,7 +191,7 @@ assertThat(activeUserCountGauge.getValue(), equalTo(1));
 
 计数器
 
-![](E:\code\java\metrics\diagram\Counter.png)
+![Counter](pic/Counter.png)
 
 ```
 Counter counter = new Counter();
