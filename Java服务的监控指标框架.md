@@ -60,11 +60,13 @@ JMX Agent并不关心它所管理的资源是什么。
 
 **Distributed Services层**：Distributed services层关心Agent如何被远端用户访问的细节。它定义了一系列用来访问Agent的接口和组件，包括Adapter和Connector的描述。
 
+## 三、JMX编程
 
 
 
 
-## 三、基本度量指标介绍
+
+## 四、基本度量指标介绍
 
 Metrics类库提供了如下监控指标：
 
@@ -215,6 +217,8 @@ assertThat(counter.getCount(), equalTo(5L));
 
 直方图用于跟踪流式数据的统计分布情况，比如最大值、最小值、均值、中值、标准差、百分比（75%）等。
 
+![](pic/Histogram.png)
+
 ```
 Histogram histogram = new Histogram(new UniformReservoir());
 histogram.update(5);
@@ -241,19 +245,53 @@ assertThat(snapshot2.get999thPercentile(), equalTo(20.0));
 
 *Histogram*的数据获取采用的蓄水池采用法（reservoir sampling）。实例一个*Histogram*对象时需要显式指定采用了哪种采样算法，metrics-core模块实现了如下算法： [*ExponentiallyDecayingReservoir*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/ExponentiallyDecayingReservoir.html), [*UniformReservoir*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/UniformReservoir.html), [*SlidingTimeWindowReservoir*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/SlidingTimeWindowReservoir.html), *[SlidingWindowReservoir](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/SlidingWindowReservoir.html).* 
 
-## 四、基于JMX的指标发布
+### Timer
+
+既跟踪了调用频率数据，又关注了统计分布数据。
+
+![](pic/Timer.png)
+
+```
+Timer timer = new Timer();
+Timer.Context context1 = timer.time();
+TimeUnit.SECONDS.sleep(5);
+long elapsed1 = context1.stop();
+ 
+assertEquals(5000000000L, elapsed1, 1000000);
+assertThat(timer.getCount(), equalTo(1L));
+assertEquals(0.2, timer.getMeanRate(), 0.1);
+ 
+Timer.Context context2 = timer.time();
+TimeUnit.SECONDS.sleep(2);
+context2.close();
+ 
+assertThat(timer.getCount(), equalTo(2L));
+assertEquals(0.3, timer.getMeanRate(), 0.1);
+```
 
 
 
-## 五、度量指标采集
+## 五、基于JMX的指标发布
+
+在Metrics类库中指标的发布与输出是通过*Reporter*实现的，metrics-core模块提供了如下几种*Reporter*：  [*ConsoleReporter*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/ConsoleReporter.html), [*CsvReporter*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/CsvReporter.html), [*Slf4jReporter*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/Slf4jReporter.html), [*JmxReporter*](http://metrics.dropwizard.io/3.1.0/apidocs/com/codahale/metrics/JmxReporter.html)等。此文重点介绍下*JmxReporter*。
+
+![](pic/JmxReporter.png)
+
+*JmxReporter*类的内部实现如图
+
+![](pic/JmxReporter_details.png)
 
 
 
-## 六、总结
+## 六、度量指标采集
 
 
 
-## 七、参考文献
+## 七、总结
+
+
+
+## 八、参考文献
 
 1、https://fangyeqing.github.io/2016/12/14/Java程序监控---Metrics/
 
