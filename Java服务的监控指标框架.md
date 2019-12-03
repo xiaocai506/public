@@ -62,9 +62,7 @@ JMX Agent并不关心它所管理的资源是什么。
 
 ## 三、JMX编程
 
-
-
-
+参考《JMX编程入门》
 
 ## 四、基本度量指标介绍
 
@@ -284,6 +282,8 @@ assertEquals(0.3, timer.getMeanRate(), 0.1);
 
 
 ## 六、度量指标采集
+
+参考《Java Metrics 编程入门》
 
 
 
