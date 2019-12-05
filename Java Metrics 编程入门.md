@@ -1,3 +1,7 @@
+---
+typora-copy-images-to: pic
+---
+
 # Java Metrics 编程入门
 
 ## 理论篇
@@ -86,7 +90,7 @@ mvn package exec:java -Dexec.mainClass=sample.GetStarted -Dexec.cleanupDaemonThr
 
 3、结果
 
-![image-20191204095454016](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191204095454016.png)
+![image-20191204095454016](pic/image-20191204095454016.png)
 
 
 
@@ -239,11 +243,11 @@ mvn package exec:java -Dexec.mainClass=com.andreabergia.metricsjmx.Main -Dexec.c
 
 3、运行结果，控制台输出如下图
 
-![image-20191204101030501](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191204101030501.png)
+![image-20191204101030501](pic/image-20191204101030501.png)
 
 4、关于JMX侧，通过jconsole可以查看
 
-![image-20191204102419643](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191204102419643.png)
+![image-20191204102419643](pic/image-20191204102419643.png)
 
 ### 第二个例子的扩展
 
@@ -289,7 +293,7 @@ StartJavaPollers=5     #zabbix-java-gateway 默认启动工作线程数量为5
 
 2.3 Web管理界面配置 
 
-​        2.3.1 被监控程序所在主机的IP，及JMX监听端口![image-20191205134838368](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191205134838368.png)
+​        2.3.1 被监控程序所在主机的IP，及JMX监听端口![image-20191205134838368](pic/image-20191205134838368.png)
 
 ​          2.3.2主机添加 Generic Java JMX模板
 
@@ -297,25 +301,27 @@ StartJavaPollers=5     #zabbix-java-gateway 默认启动工作线程数量为5
 
 ​                    成功操作
 
-![image-20191205142135937](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191205142135937.png)
+![image-20191205142135937](pic/image-20191205142135937.png)
 
 ​             2.3.3 添加监控项
 
-![image-20191205144527991](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191205144527991.png)
+![image-20191205144527991](pic/image-20191205144527991.png)
 
 添加成功后
 
-![image-20191205144555180](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191205144555180.png)
+![image-20191205144555180](pic/image-20191205144555180.png)
 
 Monitoring>Overview中选择图表方式显示历史数据
 
-![image-20191205144902697](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191205144902697.png)
+![image-20191205144902697](pic/image-20191205144902697.png)
 
 结果展示
 
-![image-20191205144922200](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191205144922200.png)
+![image-20191205144922200](pic/image-20191205144922200.png)
 
 ## 总结
+
+本文通过两个例子讲述了如何在自己的程序中使用Metrics类库，并将度量指标上报到console或JMX供后续的使用。进一步，在第二例子的基础上，我们使用zabbix提供的java gateway将JMX上自定义的度量数据收集到Zabbix server，并可以图表形式进行展现。
 
 ## 参考引用
 
