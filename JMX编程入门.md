@@ -1260,9 +1260,23 @@ java -classpath . Client
 
 内容包括创建RMI connector客户端，并连接connector服务端。创建并注册  *SimpleStandard*  和  *SimpleDynamic*  MBean到远程MBean server。执行 *SimpleStandard*  和  *SimpleDynamic*  MBean提供的操作，然后取消注册。
 
-### 第五个例子：Lookup Services
+### Lookup Service服务发现
 
 
+
+### 第五个例子：基于SLP的服务发现Lookup Service
+
+### 第六个例子：基于Jini的服务发现
+
+### 第七个例子：基于JNDI/LDAP的服务发现
+
+### 安全
+
+### 第八个例子：简单策略
+
+###第九个例子：subject Delegtaion
+
+### 第十个例子：高级策略
 
 ## 三、总结
 
