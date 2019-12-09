@@ -297,7 +297,7 @@ StartJavaPollers=5     #zabbix-java-gateway 默认启动工作线程数量为5
 
 ​          2.3.2主机添加 Generic Java JMX模板
 
-![image-20191204113857410](C:/Users/0049001237/AppData/Roaming/Typora/typora-user-images/image-20191204113857410.png)
+![image-20191204113857410](pic/image-20191204113857410.png)
 
 ​                    成功操作
 
