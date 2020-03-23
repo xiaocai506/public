@@ -1,0 +1,5 @@
+*.pyc
+go1.14.linux-amd64.tar.gz
+*.log
+.history
+*.res
