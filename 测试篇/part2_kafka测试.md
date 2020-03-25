@@ -1815,8 +1815,49 @@ producer-topic-metrics:record-send-total:{client-id=producer-1, topic=test-rep-o
 同等测试用例下，两个机器的测试性能结果接近。
 ```
 
+### 用例7：单broker，消费者，单线程，六分区
+
+#### CM：157.110
+
+```shell
+[root@lv110 KAFKA]# bin/kafka-consumer-perf-test --broker-list 10.45.157.110:9092 --messages 6000000 --threads 1 --topic test-rep-one --print-metrics
+```
+
+测试结果
+
+```
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2020-03-25 08:58:03:232, 2020-03-25 08:58:10:283, 571.9707, 81.1191, 6000000, 850943.1286, 3115, 3936, 145.3178, 1524390.2439
+```
+
+
+
+#### ZFM：157.111
+
+```shell
+[root@lv111 kafka]# bin/kafka-consumer-perf-test.sh --broker-list 10.45.157.111:9092 --messages 6000000 --threads 1 --topic test-rep-one --print-metrics
+```
+
+测试结果
+
+```
+start.time, end.time, data.consumed.in.MB, MB.sec, data.consumed.in.nMsg, nMsg.sec, rebalance.time.ms, fetch.time.ms, fetch.MB.sec, fetch.nMsg.sec
+2020-03-25 09:02:23:177, 2020-03-25 09:02:30:440, 571.7060, 78.7149, 6000000, 826104.9153, 3112, 4151, 137.7273, 1445434.8350
+```
+
+
+
+#### 结果对比
+
+```
+同等测试用例下，两个机器的测试性能结果接近。
+```
+
 
 
 ## 五、结论
 
 1、在相同配置157.110和157.111两台服务器测试如上列举的用例1-用例6，所得kafka的producer吞吐性能测试结果接近。
+
+2、在相同配置157.110和157.111两台服务器测试如上列举的用例7，所得kafka的consumer消费能力测试结果接近。（用例偏少）
+
