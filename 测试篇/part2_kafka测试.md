@@ -1,8 +1,8 @@
-# Kafka性能测试
+# Kafka性能对比测试
 
 ## 一、机器
 
-参考[part1_测试环境](./part1_测试环境.md)
+参考[part1_硬件性能测试](./part1_硬件性能测试.md)
 
 ## 二、服务配置
 
@@ -235,7 +235,7 @@ kafka-consumer-perf-test --broker-list kafka_host:9092 --messages 6000000 --thre
 >
 > https://blog.csdn.net/fengzheku/article/details/50585972
 
-## 四、测试结果
+## 四、测试用例与结果
 
 ### 用例1：单borker，生产者，单线程，六分区，无副本，消息payload 100字节
 

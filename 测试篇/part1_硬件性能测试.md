@@ -16,7 +16,7 @@
 
 参考：https://www.94ish.me/1935.html
 
-下载的脚本工具 [LemonBenchIntl.sh](LemonBenchIntl.sh) 
+下载的脚本工具 [LemonBenchIntl.sh](./files/LemonBenchIntl.sh) 
 
 ## 测试过程
 
@@ -342,4 +342,8 @@ dd if=/disk1/1G.test of=/dev/zero bs=1M count=1000 iflag=direct
 
 ## 测试结论
 
-157.110和157.111两台服务器的配置相同，在误差允许范围内，相关的性能测试数据是一样的。
+1、157.110和157.111两台服务器的硬件配置相同，在误差允许范围内，cpu和内存的性能测试数据接近的。
+
+2、硬盘部分，在写入性能上157.110和157.111数据是接近的，读取这块差异比较大，待后续的继续测试。
+
+![image-20200403093507698](pic/part1_硬件性能测试/image-20200403093507698.png)
