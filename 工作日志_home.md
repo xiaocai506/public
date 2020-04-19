@@ -102,7 +102,7 @@ ffmpeg的推流
 
 154.73有多个ffmpeg版本，使用/opt/ffmpeg下版本
 
-推视频文件到rtsp服务器（）
+推视频文件到rtsp服务器（循环推流不好使）
 
 ```
  /opt/ffmpeg/bin/ffmpeg -re -stream_loop -1  -i *.264 -vcodec copy  -an -f rtsp -rtsp_transport tcp rtsp://10.45.154.73:554/test.sdp
@@ -132,6 +132,12 @@ done
 推rtsp流到rtsp服务器 -an 不要音频
 
 ```
-/opt/ffmpeg/bin/ffmpeg -i rtsp://admin:Znv123456@10.45.148.111:554 -vcodec copy  -an  -f rtsp -rtsp_transport tcp rtsp://10.45.154.73:554/test.sdp
+/opt/ffmpeg/bin/ffmpeg -i rtsp://admin:Znv123456@10.45.148.111:554/h264/ch1/main/av_stream -vcodec copy  -an  -f rtsp -rtsp_transport tcp rtsp://10.45.154.73:554/test.sdp
+```
+
+海康视频流格式
+
+```
+ rtsp://admin:Znv123456@10.45.148.111:554/h264/ch1/main/av_stream  
 ```
 
