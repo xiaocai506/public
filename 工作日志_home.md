@@ -133,11 +133,14 @@ done
 
 ```
 /opt/ffmpeg/bin/ffmpeg -i rtsp://admin:Znv123456@10.45.148.111:554/h264/ch1/main/av_stream -vcodec copy  -an  -f rtsp -rtsp_transport tcp rtsp://10.45.154.73:554/test.sdp
+
+/opt/ffmpeg/bin/ffmpeg -i rtsp://admin:Znv123456@10.45.148.31:554/h264/ch1/main/av_stream -vcodec copy  -an  -f rtsp -rtsp_transport tcp rtsp://10.45.154.73:554/test.sdp
 ```
 
 海康视频流格式
 
 ```
  rtsp://admin:Znv123456@10.45.148.111:554/h264/ch1/main/av_stream  
+ rtsp://admin:Znv123456@10.45.148.31:554/h264/ch1/main/av_stream 
 ```
 
